@@ -7,3 +7,7 @@ add_library(InputParserLib
 )
 
 target_include_directories(InputParserLib PUBLIC include)
+
+target_link_libraries(InputParserLib
+    PRIVATE
+    CommonLib)

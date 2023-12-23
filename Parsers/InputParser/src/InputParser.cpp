@@ -13,7 +13,7 @@ namespace options
     const std::vector<std::string> availableOptions{help, helpShort, textFile, textFileShort};
 }
 
-namespace input_parser
+namespace parsers
 {
     InputParser::InputParser(int argc, char *argv[])
     {
@@ -48,7 +48,6 @@ namespace input_parser
                     if (auto path = std::next(result); path != inputArgs.end())
                     {
                         paths.push_back(*path);
-                        std::cout << paths.back() << std::endl;
                         return true;
                     }
                 }
@@ -71,6 +70,11 @@ namespace input_parser
         }
 
         return true;
+    }
+
+    std::string InputParser::getPath()
+    {
+        return paths.back();
     }
 
 }
